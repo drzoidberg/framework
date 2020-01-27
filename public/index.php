@@ -6,4 +6,4 @@ use App\Core;
 //use Kint;
 
 $core = new Core();
-//Kint::dump($core);
+$core->init();

@@ -5,6 +5,7 @@ namespace App;
 
 class RouteManager
 {
+    public $container ;
     public function dispatch(string $requestMethod, string $requestUri, \FastRoute\Dispatcher $dispatcher)
     {
         $route = $dispatcher->dispatch($requestMethod,$requestUri);

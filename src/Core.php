@@ -2,21 +2,33 @@
 
 namespace App;
 use App\routing\Web;
+use \DI\Container;
+use \DI\ContainerBuilder;
 
 class Core
 {
+    private $container;
+    private $logger;
+
     public function __construct()
     {
-        $logManager = new LogManager();
-        $logManager->info("iniciando la aplicacion");
+        $this->container = $this->createContainer();
+        $this->logger = $this->container->get(LogManager::class);
+    }
 
-        /* previamente */
-        //$viewManager = new ViewManager();
-        //$viewManager->renderTemplate('index.twig.html');
-
+    public function init()
+    {
         $httpMethod = $_SERVER['REQUEST_METHOD'];
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $routeManager = new RouteManager();
         $routeManager->dispatch($httpMethod, $uri, Web::getDispatcher());
+    }
+
+    public function createContainer():Container
+    {
+        $containerBuilder = new ContainerBuilder();
+        $containerBuilder->useAutowiring(true);
+        return $containerBuilder->build();
+
     }
 }
