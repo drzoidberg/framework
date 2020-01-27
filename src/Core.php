@@ -9,6 +9,7 @@ class Core
 {
     private $container;
     private $logger;
+    private $routeManager;
 
     public function __construct()
     {
@@ -20,8 +21,8 @@ class Core
     {
         $httpMethod = $_SERVER['REQUEST_METHOD'];
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $routeManager = new RouteManager();
-        $routeManager->dispatch($httpMethod, $uri, Web::getDispatcher());
+        $this->routeManager = $this->container->get(RouteManager::class);
+        $this->routeManager->dispatch($httpMethod, $uri, Web::getDispatcher());
     }
 
     public function createContainer():Container
