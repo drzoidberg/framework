@@ -10,6 +10,7 @@ class ComposerStaticInit1f9f6d04471e7a489962a5fdc42edbc5
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '3917c79c5052b270641b5a200963dbc2' => __DIR__ . '/..' . '/kint-php/kint/init.php',
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -33,6 +34,10 @@ class ComposerStaticInit1f9f6d04471e7a489962a5fdc42edbc5
         'K' => 
         array (
             'Kint\\' => 5,
+        ),
+        'F' => 
+        array (
+            'FastRoute\\' => 10,
         ),
         'A' => 
         array (
@@ -64,6 +69,10 @@ class ComposerStaticInit1f9f6d04471e7a489962a5fdc42edbc5
         'Kint\\' => 
         array (
             0 => __DIR__ . '/..' . '/kint-php/kint/src',
+        ),
+        'FastRoute\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
         'App\\' => 
         array (
