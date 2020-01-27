@@ -15,6 +15,7 @@
         }
     },
     "scripts": {
-        "start": "php -S localhost:4000 -t=public"
+        "start": "@composer flush-cache && php -S localhost:5000 -t=public",
+        "flush-cache": "if [ -d 'cache/views' ]; then rm -r 'cache/views'; fi;"
     }
 }
